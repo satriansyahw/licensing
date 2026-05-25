@@ -16,6 +16,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(rateLimitInterceptor)
                 .addPathPatterns("/api/v1/**") // Hanya menerapkan rate limit pada endpoint API v1
-                .excludePathPatterns("/swagger-ui/**", "/v3/api-docs/**", "/h2-console/**");
+                .excludePathPatterns("/swagger-ui/**", "/v3/api-docs/**", "/h2-console/**", "/api/v1/test-circuit-breaker");
     }
 }

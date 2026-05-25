@@ -33,7 +33,7 @@ git add .
 
 :: 5. Commit changes
 echo [INFO] Committing changes...
-git commit -m "feat: add rate limiting, resolve filter conflict, fix 403 async auth, and format exceptions"
+git commit -m "feat: add rate limiting, circuit breaker, and walkthrough documentation"
 
 :: 6. Rename branch to main
 echo [INFO] Setting branch name to main...

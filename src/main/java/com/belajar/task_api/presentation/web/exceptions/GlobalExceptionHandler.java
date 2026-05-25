@@ -50,7 +50,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Result<Map<String, String>>> handleBusinessException(BusinessException ex) {
         log.warn("Business rule violation: {}", ex.getMessage());
         return ResponseEntity
-                .status(HttpStatus.UNPROCESSABLE_CONTENT)
+                .status(HttpStatus.UNPROCESSABLE_ENTITY)
                 .body(Result.failure("Business rule violation"));
     }
 
