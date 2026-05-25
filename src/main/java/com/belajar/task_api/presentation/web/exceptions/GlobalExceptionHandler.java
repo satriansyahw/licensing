@@ -54,6 +54,14 @@ public class GlobalExceptionHandler {
                 .body(Result.failure("Business rule violation"));
     }
 
+    @ExceptionHandler(RateLimitExceededException.class)
+    public ResponseEntity<Result<Map<String, String>>> handleRateLimitExceededException(RateLimitExceededException ex) {
+        log.warn("Rate limit exceeded: {}", ex.getMessage());
+        return ResponseEntity
+                .status(HttpStatus.TOO_MANY_REQUESTS)
+                .body(Result.failure(ex.getMessage()));
+    }
+
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<Result<Map<String, String>>> handleAllExceptions(Exception ex) {
